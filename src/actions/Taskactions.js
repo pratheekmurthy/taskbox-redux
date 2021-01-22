@@ -14,6 +14,13 @@ const setTasks = (task) => {
     }
 }
 
+const delete1Task = (task) => {
+    return {
+        type: 'DELETE_TASK',
+        payload: task
+    }
+}
+
 export const startGetTasks = () => {
     return (dispatch) => {
         axios.get(' http://localhost:3033/api/tasks')
@@ -33,7 +40,19 @@ export const startPostTasks = (task) => {
             .then((response) => {
                 const task = response.data 
                 dispatch(setTasks(task))
-                console.log("i did axios")
+            })
+            .catch((err) => {
+                alert(err.message)
+            })
+    }
+}
+
+export const startDeleteTask = (id) => {
+    return (dispatch) => {
+        axios.delete(`http://localhost:3033/api/tasks/${id}`)
+            .then((response) => {
+                const deleteTask = response.data 
+                dispatch(delete1Task(deleteTask))
             })
             .catch((err) => {
                 alert(err.message)

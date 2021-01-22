@@ -3,7 +3,7 @@ import ReactDom from 'react-dom'
 import { Provider } from 'react-redux'
 import App from './components/App'
 import configureStore from './store/configureStore'
-// import {startGetTasks} from './actions/userActions'
+import {startGetTasks} from './actions/Taskactions'
 
 const store = configureStore()
 console.log(store.getState())
@@ -11,6 +11,10 @@ console.log(store.getState())
 store.subscribe(()=>{
     console.log(store.getState())
 })
+
+if(true) {
+    store.dispatch(startGetTasks())
+}
 
 
 const ele = (

@@ -6,8 +6,13 @@ const tasksReducer = (state = initialState, action) => {
             return [...action.payload]
         }
         case 'SET_TASKS' : {
-            console.log(" i came to switch")
             return [...state,action.payload]
+        }
+
+        case 'DELETE_TASK' : {
+            return state.filter((task) => {
+                return task.id !== action.payload.id
+            })
         }
         
         default: {

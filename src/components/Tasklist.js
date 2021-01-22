@@ -4,7 +4,7 @@ import Taskitem from './Taskitem'
 
 const TasksList = (props) => {
     const tasks = useSelector(state => state.tasks)
-    console.log("hey")
+    
     
 return(<div>
     <h1>Task List</h1>
